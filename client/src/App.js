@@ -2,18 +2,18 @@ import React, {useState} from "react";
 import {MenuItem, Menu, Sidebar} from 'react-pro-sidebar';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route, Link, HashRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import {Login} from '@pages/login';
-import {Dashboard} from '@pages/dashboard';
-import {Inventory} from '@pages/inventory';
-import {Reports} from '@pages/reports';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Inventory from './pages/Inventory';
+import Reports from './pages/Reports';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 return (
-    <Router>
+    <BrowserRouter>
       <div className="d-flex" style={{ height: '100vh' }}>
         <Sidebar>
           <Menu>
@@ -28,15 +28,15 @@ return (
         </Sidebar>
 
         <div className="flex-grow-1">
-          <HashRouter>
-          <Route path="/" element={<Login />} />
+          <Routes>
+            <Route path="/" element={<Login />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/reports" element={<Reports />} />
-          </HashRouter>
+          </Routes>
         </div>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
