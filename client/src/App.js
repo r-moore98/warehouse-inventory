@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 
-import Login from "./pages/login";
-import Dashboard from "./pages/dashboard";
-import Inventory from "./pages/inventory";
-import Reports from "./pages/reports";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Inventory from "./pages/Inventory";
+import Reports from "./pages/Reports";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
