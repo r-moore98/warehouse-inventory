@@ -8,8 +8,9 @@ import Inventory from "./pages/Inventory";
 import Reports from "./pages/Reports";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [isLoggedIn] = useState(false);
+  //setIsLoggedIn
+  //npx vercel
   return (
     <BrowserRouter>
       <div className="d-flex" style={{ height: "100vh" }}>
