@@ -1,21 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
     event.preventDefault();
+    const form = event.currentTarget;
 
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      // Handle your login submission logic here (e.g., API call)
-      console.log('Submitted:', { email, password });
+      console.log("Submitted:", { email, password });
     }
 
     setValidated(true);
@@ -28,45 +27,29 @@ const Login = () => {
           <Card className="p-4 shadow-sm">
             <Card.Body>
               <h3 className="text-center mb-4">Sign In</h3>
-              
+
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                {/* Email Field */}
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     required
                     type="email"
-                    placeholder="Enter email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid email address.
-                  </Form.Control.Feedback>
                 </Form.Group>
 
-                {/* Password Field */}
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     required
                     type="password"
-                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter your password.
-                  </Form.Control.Feedback>
                 </Form.Group>
 
-                {/* Remember Me Checkbox */}
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Remember me" />
-                </Form.Group>
-
-                {/* Submit Button */}
-                <Button variant="primary" type="submit" className="w-100 mt-2">
+                <Button type="submit" className="w-100">
                   Login
                 </Button>
               </Form>
